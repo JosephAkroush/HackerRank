@@ -118,33 +118,33 @@ public class Stack<T>
 
 public class TextEditor
 {
-    private Stack<string> operations = new Stack<string>();
+    private Stack<string> _operations = new Stack<string>();
 
     public void Append(string input)
     {
-        string top = operations.Top() + input;
+        string top = _operations.Top() + input;
 
-        operations.Push(top);
+        _operations.Push(top);
     }
 
     public void Delete(int length)
     {
-        string top = operations.Top();
+        string top = _operations.Top();
 
         top = top.Remove(top.Length - length);
 
-        operations.Push(top);
+        _operations.Push(top);
     }
 
     public void Print(int index)
     {
-        string top = operations.Top();
+        string top = _operations.Top();
 
         Console.WriteLine(top[index - 1]);
     }
 
     public void Undo()
     {
-        operations.Pop();
+        _operations.Pop();
     }
 }
